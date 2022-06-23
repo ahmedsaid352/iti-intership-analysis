@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-# D:\Data\dataAnalysis\iti\Accepted List Zagazig University.xlsx
-df = pd.read_excel("all.xlsx")
+
+df = pd.read_excel("dataframe.xlsx")
 
 print("\t \t Wellcome \n\n")
 print("\tMenu of options\n")
@@ -32,7 +32,7 @@ def choose():
     elif(ch==6):
         exit()
     else:
-        print("please Enter integer number 1:8\n")
+        print("please Enter integer number 1:6\n")
         choose()
 
 #   showing data function
@@ -50,7 +50,27 @@ def stats():
 
 
 def box():
-    sns.boxplot(x='complete score',y='Specialization',data=df)
+    print("box plot relations options\n\n")
+    print("1.relation between track & score \n\n")
+    print("2.relation between Specialization & score\n\n")
+    print("3.relation between Faculty & score\n\n")
+    print("4.back to main menu of options\n\n")
+    choice = int(input("Enter option number then press enter\n\n"))
+    if(choice==1):
+        xvar = 'complete score'
+        yvar = 'track'
+    elif(choice==2):
+        xvar = 'complete score'
+        yvar = 'Specialization'
+    elif(choice==3):
+        xvar = 'complete score'
+        yvar = 'Faculty'
+    elif(choice==4):
+        choose()
+    else:
+        print("please Enter integer number 1:4\n")
+        box()
+    sns.boxplot(x=xvar,y=yvar,data=df)
     plt.show()
     choose()
 #   filtering dataframe final score > 89 ==> (grade A)
@@ -64,7 +84,7 @@ def grade_A():
 
 def search():
     studname = input("\n\nEnter student name then press enter \n\n").strip().lower()
-    print(df[df['name'].str.contains(studname)])
+    print(df[df['Name'].str.contains(studname)])
     choose()    
 
 #   say good bye and exit program
