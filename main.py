@@ -50,14 +50,14 @@ def stats():
 
 
 def box():
-    sns.boxplot(x='score',y='Specialization',data=df)
+    sns.boxplot(x='complete score',y='Specialization',data=df)
     plt.show()
     choose()
 #   filtering dataframe final score > 89 ==> (grade A)
 
 def grade_A():
 
-    print(df[df['score']>84.99])
+    print(df[df['complete score']>84.99])
     choose()
 
 #   filtering dataframe names contains data entered
