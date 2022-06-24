@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_excel("dataframe.xlsx")
+df = pd.read_excel("data.xlsx")
 
 print("\t \t Wellcome \n\n")
 print("\tMenu of options\n")
@@ -28,7 +28,6 @@ def choose():
         search()
     elif(ch==5):
         box()
-        choose()
     elif(ch==6):
         exit()
     else:
@@ -84,7 +83,7 @@ def grade_A():
 
 def search():
     studname = input("\n\nEnter student name then press enter \n\n").strip().lower()
-    print(df[df['Name'].str.contains(studname)])
+    print(df[df['name in english'].str.contains(studname)])
     choose()    
 
 #   say good bye and exit program
